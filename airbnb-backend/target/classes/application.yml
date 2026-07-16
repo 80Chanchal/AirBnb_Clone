@@ -1,12 +1,12 @@
 spring:
   application:
-    name: stayvista-backend
+    name: airbnb-backend
 
   datasource:
-    url: ${DB_URL:jdbc:h2:mem:airbnbdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
-    username: ${DB_USERNAME:sa}
-    password: ${DB_PASSWORD:}
-    driver-class-name: ${DB_DRIVER_CLASS_NAME:org.h2.Driver}
+    url: jdbc:postgresql://localhost:5432/airbnb_clone
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
       minimum-idle: 5
@@ -47,7 +47,7 @@ spring:
     type: simple
 
 server:
-  port: ${PORT:8080}
+  port: ${PORT:8081}
   error:
     include-message: always
     include-binding-errors: always
@@ -58,22 +58,18 @@ jwt:
   expiration: ${JWT_EXPIRATION:86400000}       # 24 hours in ms
   refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}  # 7 days in ms
 
-# Cloudinary Configuration
-cloudinary:
-  cloud-name: ${CLOUDINARY_CLOUD_NAME:your-cloud-name}
-  api-key: ${CLOUDINARY_API_KEY:your-api-key}
-  api-secret: ${CLOUDINARY_API_SECRET:your-api-secret}
+
 
 # App Configuration
 app:
   frontend-url: ${FRONTEND_URL:http://localhost:5173}
-  backend-url: ${BACKEND_URL:http://localhost:8080}
+  backend-url: ${BACKEND_URL:http://localhost:8081}
   email-verification-expiry: 86400000   # 24 hours
   password-reset-expiry: 3600000        # 1 hour
 
 # Cors
 cors:
-  allowed-origins: http://localhost:5173,http://localhost:3000,https://stayvista.vercel.app
+  allowed-origins: http://localhost:5173,http://localhost:3000,https://airbnb.vercel.app
   allowed-methods:
     - GET
     - POST
