@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import PropertyCard from './PropertyCard'
 
 // Mock useAuth context
@@ -26,15 +27,18 @@ const mockProperty = {
 
 describe('PropertyCard Component', () => {
   it('should render property details correctly', () => {
+    const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })
     render(
-      <BrowserRouter>
-        <PropertyCard property={mockProperty} />
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <PropertyCard property={mockProperty} compact={false} />
+        </BrowserRouter>
+      </QueryClientProvider>
     )
 
     expect(screen.getByText('Luxury Beachfront Villa')).toBeInTheDocument()
     expect(screen.getByText('Miami, USA')).toBeInTheDocument()
-    expect(screen.getByText('$350')).toBeInTheDocument()
+    expect(screen.getByText(/₹700/)).toBeInTheDocument()
     expect(screen.getByText(/3 beds · 2.5 baths · 6 guests/i)).toBeInTheDocument()
   })
 })

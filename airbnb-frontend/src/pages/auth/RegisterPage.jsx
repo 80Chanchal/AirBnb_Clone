@@ -26,6 +26,10 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
+      toast.error('Password must be at least 8 characters and include uppercase, lowercase, and a number')
+      return
+    }
     setLoading(true)
     try {
       await register(formData)
@@ -96,6 +100,9 @@ export default function RegisterPage() {
               value={formData.password}
               onChange={handleChange}
               required
+              minLength={8}
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*"
+              title="Use at least 8 characters with uppercase, lowercase, and a number"
               placeholder="Min. 8 characters"
               className="input-field"
             />

@@ -19,6 +19,10 @@ export default function ResetPasswordPage() {
       toast.error('Passwords do not match')
       return
     }
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
+      toast.error('Password must be at least 8 characters and include uppercase, lowercase, and a number')
+      return
+    }
 
     setLoading(true)
     try {
@@ -58,6 +62,9 @@ export default function ResetPasswordPage() {
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
+              minLength={8}
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*"
+              title="Use at least 8 characters with uppercase, lowercase, and a number"
               placeholder="Min. 8 characters"
               className="input-field"
             />

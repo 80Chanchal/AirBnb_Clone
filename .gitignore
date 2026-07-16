@@ -1,0 +1,17 @@
+# JavaScript build artifacts and installed dependencies
+airbnb-frontend/node_modules/
+airbnb-frontend/dist/
+airbnb-frontend/.vite/
+
+# Java build artifacts and local tooling
+airbnb-backend/target/
+airbnb-backend/tools/
+airbnb-backend/*.zip
+
+# Local environment settings and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/

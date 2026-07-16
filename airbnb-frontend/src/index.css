@@ -212,36 +212,67 @@
   color: #222222;
 }
 
-/* Compact Airbnb-style navigation, independent of the active colour scheme. */
+/* Airbnb-style desktop navigation, independent of the active colour scheme. */
 header > div:first-child {
-  height: 72px !important;
+  height: 110px !important;
 }
 
 header > div:first-child nav {
-  top: 0.75rem !important;
-  gap: 1.5rem !important;
-}
-
-header > div:first-child nav span[class*='text-4xl'] {
-  font-size: 1.5rem !important;
+  top: 1.35rem !important;
+  gap: 2.35rem !important;
 }
 
 header > div:first-child nav a {
-  font-size: 0.875rem !important;
+  position: relative;
+  display: flex;
+  min-width: 64px;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding-bottom: 0.7rem;
+  font-size: 1rem !important;
+}
+
+header > div:first-child nav a::before {
+  font-size: 2.4rem;
+  line-height: 1;
+  filter: saturate(0.9);
+}
+
+header > div:first-child nav a:nth-child(1)::before { content: '\1F30D'; }
+header > div:first-child nav a:nth-child(2)::before { content: '\1F3E0'; }
+header > div:first-child nav a:nth-child(3)::before { content: '\1F388'; }
+header > div:first-child nav a:nth-child(4)::before { content: '\1F6CE\FE0F'; }
+
+header > div:first-child nav a[aria-current='page']::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: #222222;
+  content: '';
 }
 
 header > div:nth-child(2) {
-  max-width: 900px !important;
-  margin-bottom: 1.25rem !important;
+  max-width: 1060px !important;
+  margin-bottom: 2.45rem !important;
 }
 
 header > div:nth-child(2) form {
-  padding: 0.375rem !important;
+  overflow: hidden;
+  border-color: #dddddd !important;
+  background: #ffffff !important;
+  padding: 0.55rem !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-header > div:nth-child(2) form > button {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
+header > div:nth-child(2) form > button:not(:last-child) {
+  border-right: 1px solid #dddddd;
+  border-radius: 0;
+  padding-top: 0.45rem !important;
+  padding-bottom: 0.45rem !important;
 }
 
 header > div:nth-child(2) form > button span,
@@ -250,7 +281,13 @@ header > div:nth-child(2) form input {
 }
 
 header > div:nth-child(2) form > button:last-child {
-  height: 2.5rem !important;
+  height: 3.7rem !important;
+  width: 3.7rem !important;
+}
+
+@media (max-width: 767px) {
+  header > div:first-child { height: 76px !important; }
+  header > div:nth-child(2) { margin-bottom: 1rem !important; }
 }
 
 /* Property details always use a light card surface, so prevent muted dark-mode

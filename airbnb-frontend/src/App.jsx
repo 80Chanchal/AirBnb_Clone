@@ -13,6 +13,7 @@ const LoginPage         = lazy(() => import('./pages/auth/LoginPage'))
 const RegisterPage      = lazy(() => import('./pages/auth/RegisterPage'))
 const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPasswordPage'))
 const ResetPasswordPage  = lazy(() => import('./pages/auth/ResetPasswordPage'))
+const VerifyEmailPage    = lazy(() => import('./pages/auth/VerifyEmailPage'))
 const BookingPage        = lazy(() => import('./pages/BookingPage'))
 const BookingHistoryPage = lazy(() => import('./pages/BookingHistoryPage'))
 const WishlistPage       = lazy(() => import('./pages/WishlistPage'))
@@ -40,6 +41,8 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
         </Route>
+
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
 
         {/* Protected routes (any authenticated user) */}
         <Route element={<ProtectedRoute />}>
