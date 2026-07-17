@@ -5,7 +5,6 @@ import com.stayvista.dto.property.PropertyResponse;
 import com.stayvista.entity.Property;
 import com.stayvista.entity.User;
 import com.stayvista.entity.Wishlist;
-import com.stayvista.exception.ConflictException;
 import com.stayvista.exception.ResourceNotFoundException;
 import com.stayvista.repository.PropertyRepository;
 import com.stayvista.repository.UserRepository;

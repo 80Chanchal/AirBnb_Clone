@@ -78,3 +78,4 @@ public class CloudinaryService {
         publicIds.forEach(this::deleteImage);
     }
 }
+

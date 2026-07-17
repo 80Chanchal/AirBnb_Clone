@@ -6,7 +6,6 @@ import com.stayvista.dto.user.UserResponse;
 import com.stayvista.entity.User;
 import com.stayvista.exception.ResourceNotFoundException;
 import com.stayvista.repository.UserRepository;
-import com.stayvista.service.CloudinaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
