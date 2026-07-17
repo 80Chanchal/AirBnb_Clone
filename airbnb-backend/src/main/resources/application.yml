@@ -3,9 +3,9 @@ spring:
     name: airbnb-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/airbnb_clone
-    username: postgres
-    password: 123456
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/airbnb_clone}
+    username: ${SPRING_DATASOURCE_USERNAME:${DB_USERNAME:postgres}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:123456}}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -20,7 +20,7 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
         format_sql: true
         use_sql_comments: true
     open-in-view: false
@@ -51,6 +51,12 @@ server:
   error:
     include-message: always
     include-binding-errors: always
+
+# Cloudinary
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:demo}
+  api-key: ${CLOUDINARY_API_KEY:demo}
+  api-secret: ${CLOUDINARY_API_SECRET:demo}
 
 # JWT Configuration
 jwt:

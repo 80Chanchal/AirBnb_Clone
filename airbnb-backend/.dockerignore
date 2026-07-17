@@ -1,0 +1,7 @@
+target/
+tools/
+*.zip
+.idea/
+.vscode/
+.env
+.env.*
