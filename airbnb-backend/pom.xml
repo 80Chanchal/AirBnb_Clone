@@ -106,13 +106,7 @@
             <version>${modelmapper.version}</version>
         </dependency>
 
-        <!-- Cloudinary -->
-        <dependency>
-            <groupId>com.cloudinary</groupId>
-            <artifactId>cloudinary-http44</artifactId>
-            <version>${cloudinary.version}</version>
-        </dependency>
-
+       
         <!-- Bucket4j for Rate Limiting -->
         <dependency>
             <groupId>com.bucket4j</groupId>
